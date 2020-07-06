@@ -8,10 +8,10 @@ const app = express();
 
 const mongoDBConnection = async () => {
   try {
-    await mongoose.connect('MONGO_ATLAS_URL', {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    await mongoose.connect(
+      `mongodb+srv://${process.env.USERDB}:${process.env.PWDDB}@cluster0-qasg0.mongodb.net/test?retryWrites=true&w=majority`,
+      { useNewUrlParser: true, useUnifiedTopology: true }
+    );
     console.log('DB connected');
   } catch (err) {
     console.log('DB not connected');
@@ -25,4 +25,4 @@ app.use(express.json());
 app.use('/account', accountRoute);
 app.use('/agency', agencyRoute);
 
-app.listen(3003, () => console.log('API started'));
+app.listen(process.env.PORT || 3001, () => console.log('API started'));
