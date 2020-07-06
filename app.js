@@ -28,5 +28,8 @@ app.use(express.json());
 
 app.use('/account', accountRoute);
 app.use('/agency', agencyRoute);
+app.get('/', (_req, res) => {
+  res.send('Bank API');
+});
 
 app.listen(process.env.DB_HOST || 3000, () => console.log('API started'));
