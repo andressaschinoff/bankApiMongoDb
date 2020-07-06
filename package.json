@@ -5,12 +5,13 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --experimental-modules app.js"
+    "start": "node -r dotenv/config --experimental-modules app.js"
   },
   "author": "andressa schinoff",
   "license": "ISC",
   "type": "module",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mongoose": "^5.9.20",
     "nodemon": "^2.0.4"
