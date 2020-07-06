@@ -32,4 +32,6 @@ app.get('/', (_req, res) => {
   res.send('Bank API');
 });
 
-app.listen(process.env.DB_HOST || 3000, () => console.log('API started'));
+const PORT = process.env.DB_HOST || 3000;
+
+app.listen(PORT, () => console.log('API started'));
